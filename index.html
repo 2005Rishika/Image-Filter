@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="filter">
+            <div class="inputbox">
+                <span>grayscale</span>
+                <input type="range" min="0" max="100" value="0" id="grayscale">
+            </div>
+            <div class="inputbox">
+                <span>sepia</span>
+                <input type="range" min="0" max="100" value="0" id="sepia">
+            </div>
+            <div class="inputbox">
+                <span>blur</span>
+                <input type="range" min="0" max="100"value="0" id="blur">
+            </div>
+            <div class="inputbox">
+                <span>invert</span>
+                <input type="range" min="0" max="100" value="0" id="invert">
+            </div>
+            <div class="inputbox">
+                <span>opacity</span>
+                <input type="range" min="0" max="100" value="100" id="opacity">
+            </div>
+            <div class="inputbox">
+                <span>brightness</span>
+                <input type="range" min="0" max="1000" value="100" id="brightness">
+            </div>
+            <div class="inputbox">
+                <span>contrast</span>
+                <input type="range" min="0" max="1000" value="100" id="contrast">
+            </div>
+            <div class="inputbox">
+                <span>saturate</span>
+                <input type="range" min="0" max="1000" value="100" id="saturate">
+            </div>
+
+        </div>
+        <div class="result">
+            <img src="rose.jpg" alt=""id="image">
+            <div class="output"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+              $('.inputbox input').on('input',function(){
+                 let grayscale=$('#grayscale').val();
+                 let sepia=$('#sepia').val();
+                 let blur=$('#blur').val();
+                 let invert=$('#invert').val();
+                 let opacity=$('#opacity').val();
+                 let brightness=$('#brightness').val();
+                 let contrast=$('#contrast').val();
+                 let saturate=$('#saturate').val();
+                 $('#image').css('filter','grayscale('+ grayscale +'%) sepia('+ sepia +'%) blur('+ blur +'px) invert('
+                 + invert +'%) opacity('+ opacity +'%) brightness('+ brightness +'%) contrast('+ contrast +'%) saturate('+ saturate +'%)');
+                 let filter=$('#image').css('filter');
+                 $('.output').text('filter'+filter+';');
+              });
+        });
+    </script>
+    </body>
+</html>
